@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180727152808) do
+ActiveRecord::Schema.define(version: 20180829141121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -393,6 +393,7 @@ ActiveRecord::Schema.define(version: 20180727152808) do
     t.integer "order"
     t.integer "component_id"
     t.integer "template_component_id"
+    t.integer "character_count"
   end
 
   create_table "texts", force: :cascade do |t|
