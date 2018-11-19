@@ -2,8 +2,8 @@ class TreeController < ApplicationController
   def index
   end
 
-  def jcitags
-    @tags = Tag.for_jci.arrange
+  def dollywoodtags
+    @tags = Tag.for_dollywood.arrange
     respond_to do |format|
       format.json {
         render :json =>  Tag.json_tree(@tags)
@@ -11,8 +11,8 @@ class TreeController < ApplicationController
     end
   end
 
-  def jcimap
-    @pages = Page.for_jci.arrange
+  def dollywoodmap
+    @pages = Page.for_dollywood.arrange
     respond_to do |format|
       format.json {
         render :json =>  Page.json_tree(@pages)
@@ -20,8 +20,8 @@ class TreeController < ApplicationController
     end
   end
 
-  def tycotags
-    @tags = Tag.for_tyco.arrange
+  def naqtags
+    @tags = Tag.for_naq.arrange
     respond_to do |format|
       format.json {
         render :json =>  Tag.json_tree(@tags)
@@ -29,15 +29,15 @@ class TreeController < ApplicationController
     end
   end
 
-  def tycomap
-    @pages = Page.for_tyco.arrange
+  def naqmap
+    @pages = Page.for_naq.arrange
     respond_to do |format|
       format.json {
         render :json =>  Page.json_tree(@pages)
       }
     end
   end
-  
+
 
   def data
     @tags = Tag.joins( :site_tag_mappings ).where( site_tag_mappings: { site_id: 1 }).arrange

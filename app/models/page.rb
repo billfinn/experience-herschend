@@ -15,7 +15,7 @@ class Page < ApplicationRecord
   # accepts_nested_attributes_for :page_template_mappings, :allow_destroy => true
 
   belongs_to :site
-  
+
   has_many :page_template_mappings
   has_many :templates, :through => :page_template_mappings
   accepts_nested_attributes_for :page_template_mappings, :allow_destroy => true
@@ -26,8 +26,8 @@ class Page < ApplicationRecord
   validates :name, :presence => true
 
   # scope :for_site, -> { Page.where( site_id: (params[:id]) ) }
-  scope :for_jci, -> { where( site_id: 1 ) }
-  scope :for_tyco, -> { where( site_id: 2 ) }
+  scope :for_dollywood, -> { where( site_id: 3 ) }
+  scope :for_naq, -> { where( site_id: 7 ) }
 
   def self.json_tree(nodes)
       nodes.map do |node, sub_nodes|

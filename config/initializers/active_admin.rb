@@ -17,7 +17,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Content Cookbook"
+  config.site_title = "Experience Guide"
   # config.site_title = "<%= Rails.application.class.name.split("::").first.titlecase %>"
 
   # Set the link url for the title. For example, to take

@@ -15,20 +15,20 @@ var site_data;
 //based on the site_id passed from the view, switch the JSON url used to populate the tree
 //also, get the type of data we want, such as taxonomy data or sitemap data; we should be able to access multiple trees from one codeset
 switch (site_id) {
-    case 1:
+    case 3:
         if (data_type == "taxonomy") {
-          site_data = "/tree/jcitags"
+          site_data = "/tree/dollywoodtags"
         } else if (data_type == "sitemap") {
-          site_data = "/tree/jcimap"
+          site_data = "/tree/dollywoodmap"
         } else {
 
         }
         break;
-    case 2:
+    case 7:
         if (data_type == "taxonomy") {
-          site_data = "/tree/tycotags"
+          site_data = "/tree/naqtags"
         } else if (data_type == "sitemap") {
-          site_data = "/tree/tycomap"
+          site_data = "/tree/naqmap"
         } else {
 
         }
@@ -70,8 +70,9 @@ var vis = d3.select("#tree").append("svg")
 
 $.getJSON(site_data, function(tag, error) {
   // if (error) throw error;
-  console.log(tag);
+  // console.log(tag);
   root = tag[0];
+  console.log(root);
   root.x0 = h / 2;
   root.y0 = 0;
   console.log(root);

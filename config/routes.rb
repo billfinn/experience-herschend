@@ -33,10 +33,10 @@ Rails.application.routes.draw do
   resources :text_item
   get 'tree/' => 'tree#index'
   get 'tree/data', :defaults => { :format => 'json' }
-  get 'tree/jcitags', :defaults => { :format => 'json' }
-  get 'tree/tycotags', :defaults => { :format => 'json' }
-  get 'tree/jcimap', :defaults => { :format => 'json' }
-  get 'tree/tycomap', :defaults => { :format => 'json' }
+  get 'tree/dollywoodtags', :defaults => { :format => 'json' }
+  get 'tree/naqtags', :defaults => { :format => 'json' }
+  get 'tree/dollywoodmap', :defaults => { :format => 'json' }
+  get 'tree/naqmap', :defaults => { :format => 'json' }
   get  '/api/v1/tag/data', :defaults => { :format => 'json' }
   get  '/webfootprint', to: 'pages#webfootprint'
   #api
