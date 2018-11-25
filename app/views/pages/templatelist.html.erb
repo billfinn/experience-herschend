@@ -31,11 +31,16 @@
 
           <p>
 
-
+<div class="container-fluid mt-4">
+<div class="row justify-content-center">
 
       <% @templatelist.each do |tl| %>
-        <div style="float:left;width=300px;padding:10px;">
+      <div class="col-auto mb-3">
+        <div class="card" style="width: 15rem;">
+
+        <div class="card-body">
         <%= link_to tl.name, templatedetail_path(:id => tl.id, :site => @site.id) %>
+
             <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: tl.id}) %>
 
             <% @cinstance.each do |c| %>
@@ -44,10 +49,14 @@
 
               </div>
             <% end%>
+          </div>
 
         </div>
-
+      </div>
       <% end %>
+</div>
+</div>
+      </div>
 
 
     </div>
