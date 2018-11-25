@@ -1,4 +1,4 @@
-<% @templatelist = ::Template.joins( :site_template_mappings ).where( site_template_mappings: { site_id: (params[:id]) }).order(:id) %>
+<% @templatelist = ::Template.joins( :site_template_mappings ).where( site_template_mappings: { site_id: (params[:id]) }).order(:name) %>
 <% @site = Site.find(params[:id]) %>
 
   <div class="row">
@@ -31,31 +31,31 @@
 
           <p>
 
-<div class="container-fluid mt-4">
-<div class="row justify-content-center">
+                      <div class="container-fluid mt-4">
+                      <div class="row justify-content-center">
 
-      <% @templatelist.each do |tl| %>
-      <div class="col-auto mb-3">
-        <div class="card" style="width: 15rem;">
+                            <% @templatelist.each do |tl| %>
+                            <div class="col-auto mb-3">
+                              <div class="card" style="width: 15rem;">
 
-        <div class="card-body">
-        <%= link_to tl.name, templatedetail_path(:id => tl.id, :site => @site.id) %>
+                              <div class="card-body">
+                              <%= link_to tl.name, templatedetail_path(:id => tl.id, :site => @site.id) %>
 
-            <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: tl.id}) %>
+                                  <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: tl.id}) %>
 
-            <% @cinstance.each do |c| %>
-              <div style="margin-bottom:1px; padding-left:5px;background-color:<%= c.component.component_group.color %>;">
-                <small><%= c.component.name %></small>
+                                  <% @cinstance.each do |c| %>
+                                    <div style="margin-bottom:1px; padding-left:5px;background-color:<%= c.component.component_group.color %>;">
+                                      <small><%= c.component.name %></small>
 
-              </div>
-            <% end%>
-          </div>
+                                    </div>
+                                  <% end%>
+                                </div>
 
-        </div>
-      </div>
-      <% end %>
-</div>
-</div>
+                              </div>
+                            </div>
+                            <% end %>
+                      </div>
+                      </div>
       </div>
 
 
