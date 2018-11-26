@@ -19,7 +19,7 @@ switch (site_id) {
         if (data_type == "taxonomy") {
           site_data = "/tree/dollywoodtags"
         } else if (data_type == "sitemap") {
-          site_data = "/tree/dollywoodmap1"
+          site_data = "/tree/dollywoodmap"
         } else {
 
         }
