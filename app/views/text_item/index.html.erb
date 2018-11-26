@@ -14,7 +14,8 @@
     <h3 style="margin-top: 40px;">Structure</h3>
 
     <!-- Display Component relationships -->
-          <p>Component: <br><%= @component.name %>
+          <p>Page: <br><%= link_to @page.name, page_path(:id => @page.id, :site => @site.id) %>
+            <p>Component: <br><%= @component.name %>
             <p>Instance: <br><%= @instance.id %>
 
               <% @page.templates.each do |a| %>
