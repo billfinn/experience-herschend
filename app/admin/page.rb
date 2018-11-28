@@ -41,7 +41,8 @@ form do |f|
             ptm.input :_destroy, :as => :boolean, :label => "Remove?"
           end
       end
-    f.input :image, required: true, as: :file
+    f.input :image_file_name
+    # f.input :image, required: true, as: :file
     tabs do
       # tab :Template do
       #   f.input :template_ids, as: :radio, collection: Template.all.map{|template| [template.name, template.id]}
