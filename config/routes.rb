@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get 'tree/naqmap', :defaults => { :format => 'json' }
   get  '/api/v1/tag/data', :defaults => { :format => 'json' }
   get  '/webfootprint', to: 'pages#webfootprint'
+  get '/ds-benefits', to: 'pages#ds-benefits', as: 'dsbenefits'
   #api
   namespace :api do
     namespace :v1 do
