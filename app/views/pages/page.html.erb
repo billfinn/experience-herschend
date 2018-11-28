@@ -98,7 +98,10 @@
             <%# end %>
 
         <hr>-->
-
+        <% if @thispage.image_file_name.blank? == false %>
+        <%= link_to "Wireframe", @thispage.image_file_name, :class => "btn btn-info", target: "_blank" %>
+        <% else %>
+        <% end %>
 
       <h5>Page Content</h5>
 
