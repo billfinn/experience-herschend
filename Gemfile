@@ -34,6 +34,7 @@ gem 'kaminari'
 gem 'smart_listing'
 gem 'filterrific'
 gem 'aws-sdk', '~> 2'
+gem 'active_admin-duplicatable'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

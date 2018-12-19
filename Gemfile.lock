@@ -34,6 +34,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_admin-duplicatable (0.4.0)
+      activeadmin
+      amoeba (>= 2.0.0)
     active_admin_role (0.1.1)
       activeadmin (>= 1.0.0.pre4)
       cancancan (>= 1.15.0)
@@ -76,6 +79,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    amoeba (3.1.0)
+      activerecord (>= 3.2.6)
     ancestry (3.0.1)
       activerecord (>= 3.2.0)
     ancestry-treeview (0.0.2)
@@ -321,6 +326,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_admin-duplicatable
   active_admin_import!
   active_admin_role
   active_model_serializers
@@ -367,4 +373,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.1
+   2.0.0.pre.1
