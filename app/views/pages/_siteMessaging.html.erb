@@ -1,7 +1,7 @@
-<div class="well">
-    View for&nbsp;
+    <div class="alert alert-info" role="alert"><small> Teams > Files > Content Strategy > <%= link_to "HFE_MessagingArchitecture.xlsx", "https://teams.microsoft.com/_#/xlsx/viewer/teams/https%3A~2F~2Frpo365.sharepoint.com~2Fsites~2FP17402~2FShared%20Documents~2FGeneral~2FContent%20Strategy~2FWorking%20Files~2FHFE_MessagingArchitecture.xlsx?threadId=19%3Acffb7cbb570a4a3189136ab699835722%40thread.skype&baseUrl=https%3A~2F~2Frpo365.sharepoint.com~2Fsites~2FP17402&fileId=D9C84F22-8A19-40EE-847D-18CA30CBCB8E&ctx=files&viewerAction=view", target: "_blank" %></small></div>
+
       <% @sites = ::Site.order(:name) %>
       <% @sites.each do |site|  %>
-        <%= link_to site.name, messagingdetail_path(site) %>&nbsp;&nbsp;
+        <%= link_to site.name, engagementvaluedetail_path(site) %>&nbsp;&nbsp;
       <% end %>
-</div>
+      <br>

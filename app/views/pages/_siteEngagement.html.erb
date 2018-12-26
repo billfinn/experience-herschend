@@ -1,0 +1,7 @@
+    <div class="alert alert-info" role="alert"><small> Teams > Files > Content Strategy > <%= link_to "Engagement Value Strategy.xlsx", "https://teams.microsoft.com/_#/xlsx/viewer/teams/https%3A~2F~2Frpo365.sharepoint.com~2Fsites~2FP17402~2FShared%20Documents~2FGeneral~2FContent%20Strategy~2FWorking%20Files~2FEngagement%20Value%20Strategy.xlsx?threadId=19%3Acffb7cbb570a4a3189136ab699835722%40thread.skype&baseUrl=https%3A~2F~2Frpo365.sharepoint.com~2Fsites~2FP17402&fileId=0F19D230-0FF3-4C0E-888A-416DEA71F1A5&ctx=files&viewerAction=view", target: "_blank" %></small></div>
+
+      <% @sites = ::Site.order(:name) %>
+      <% @sites.each do |site|  %>
+        <%= link_to site.name, engagementvaluedetail_path(site) %>&nbsp;&nbsp;
+      <% end %>
+      <br>

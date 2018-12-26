@@ -66,8 +66,19 @@
                 <%#= link_to "Content Mapping", contentmapping_path, class: "dropdown-item" %>
               </div>
             </li> -->
-            <li class="nav-item"><%= link_to "Design System", dsbenefits_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "Sitemap", sitemapdetail_path(3), class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Content Review Checklist", review_path, class: "nav-link" %></li>
+            <!-- <li class="nav-item"><%= link_to "Design System", dsbenefits_path, class: "nav-link" %></li> -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Strategy</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to "Content Roadmap", roadmap_path, class: "dropdown-item" %>
+                <%= link_to "Sitemap", sitemapdetail_path(3), class: "dropdown-item" %>
+                <%= link_to "Taxonomy", taxonomysite_path(3), class: "dropdown-item" %>
+                <%= link_to "Messaging Architecture", messagingdetail_path(3), class: "dropdown-item" %>
+                <%= link_to "Engagement Value", engagementvaluedetail_path(3), class: "dropdown-item" %>
+                <!-- <a class="dropdown-item" href="#">SEO</a> -->
+              </div>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Creation</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -77,6 +88,7 @@
                 <%#= link_to "Messaging Hierarchy", messagingdetail_path(1), class: "dropdown-item" %>
                 <!-- <a class="dropdown-item" href="#">SEO</a> -->
               </div>
+            </li>
             <!-- <li class="nav-item"><a class="nav-link" href="#">Governance</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Measurement</a></li> -->
             <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>

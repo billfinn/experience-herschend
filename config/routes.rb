@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get  '/component/:id', to: 'pages#component', as: 'component'
   get  '/components/', to: 'pages#components', as: 'components'
   get  '/contentmapping', to: 'pages#contentmapping'
+  get  '/engagementvalue', to: 'pages#engagementvalue'
+  get  '/engagementvaluedetail/:id', to: 'pages#engagementvaluedetail', as: 'engagementvaluedetail'
   get  '/home', to: 'pages#home'
   get  '/flows', to: 'pages#flows'
   get  '/flowdetail/:id', to: 'pages#flowdetail', as: 'flowdetail'
@@ -18,6 +20,8 @@ Rails.application.routes.draw do
   get  '/personachart/', to: 'pages#personachart', as: 'personachart'
   get  '/page/:id', to: 'pages#page', as: 'page'
   get   "/pages/:page" => "pages#show"
+  get  '/review', to: 'pages#review'
+  get  '/roadmap', to: 'pages#roadmap'
   get  '/searchtest', to: 'pages#searchtest'
   resources :search, only: [:index]
   resources :site_crawl
