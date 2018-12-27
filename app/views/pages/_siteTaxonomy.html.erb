@@ -2,8 +2,8 @@
     <% @sites = ::Site.order(:name) %>
     <div class="alert alert-info" role="alert"><small> Teams > Files > Content Strategy > <%= link_to "HFE_Taxonomy.xlsx", "https://teams.microsoft.com/_#/xlsx/viewer/teams/https%3A~2F~2Frpo365.sharepoint.com~2Fsites~2FP17402~2FShared%20Documents~2FGeneral~2FContent%20Strategy~2FWorking%20Files~2FHFE_Taxonomy.xlsx?threadId=19%3Acffb7cbb570a4a3189136ab699835722%40thread.skype&baseUrl=https%3A~2F~2Frpo365.sharepoint.com~2Fsites~2FP17402&fileId=192800F2-DC82-4D67-AA22-3C3CB2FAE671&ctx=files&viewerAction=view", target: "_blank" %></small></div>
     
-    <% @sites.each do |site|  %>
-      <%= link_to site.name, taxonomysite_path(site) %>&nbsp;&nbsp;
-    <% end %>
-    <br>
+    <%# @sites.each do |site|  %>
+      <%#= link_to site.name, taxonomysite_path(site) %>&nbsp;&nbsp;
+    <%# end %>
+    <!--br> -->
 
