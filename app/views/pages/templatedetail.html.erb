@@ -91,37 +91,105 @@
         <br><small class="text-muted">Page Template        </small>
       </h1>
 
-      <% if @thistemplate.document.blank? == false %>
+    <!-- TAB MENU FOR PAGE TEMPLATE -->
+
+    <nav>
+      <div class="nav nav-tabs  justify-content-center" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-priority-tab" data-toggle="tab" href="#nav-priority" role="tab" aria-controls="nav-priority" aria-selected="true">Priority Guide</a>
+        <a class="nav-item nav-link" id="nav-design-tab" data-toggle="tab" href="#nav-design" role="tab" aria-controls="nav-design" aria-selected="false">Design</a>
+        <!-- <a class="nav-item nav-link" id="nav-component-tab" data-toggle="tab" href="#nav-component" role="tab" aria-controls="nav-component" aria-selected="false">Components</a> -->
+      </div>
+    </nav>
+
+
+    <div class="tab-content" id="nav-tabContent" style="padding:20px 15px 0px 15px;">
+
+      <div class="tab-pane fade show active" id="nav-priority" role="tabpanel" aria-labelledby="nav-priority-tab">
+          <h4>Purpose</h4>
+          <p><%= @thistemplate.page_purpose %></p>
+
+                  <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: @thistemplate.id}) %>
+
+                  <% @cinstance.each do |c| %>
+                    <div class="card" style="margin-bottom:15px; background-color:<%= c.component.component_group.color %>">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= c.component.name %>&nbsp;<span class="badge badge-light"><%= c.component.component_group.name %></span></h5>
+                        <p class="card-text"><%= c.component.goal %>
+                      </div>
+                    </div>
+                  <% end%>      
+      </div>
+      
+      
+      <div class="tab-pane fade" id="nav-design" role="tabpanel" aria-labelledby="nav-design-tab">
+
+        <% if @thistemplate.image.blank? == false %>
+          <p class="text-center"><small><%= link_to "Launch Design in New Window", @thistemplate.image, target: "_blank" %></small></p>
+          <iframe style="width:100%; height:1000px; margin: 0 0 30px 0; border:#ccc 1px dotted;" src="<%= @thistemplate.image %>">
+          <p>Placeholder text; only shows up if the page DOESN'T render!</p>
+          </iframe>
+        <% else %>
+        <% end %>
+
+      </div>
+      
+      
+      <div class="tab-pane fade" id="nav-component" role="tabpanel" aria-labelledby="nav-component-tab">
+
+      <!--
+          <% @thistemplate.components.each do |c| %>
+            <a id="<%= c.name %>"></a>
+            <h3><%= c.name %> <small class="text-muted">Component</small></h3>
+
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Attribute</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row">Personalization</td>
+                  <td><i><%= c.personalization_rules %></i></td>
+                </tr>
+                <tr>
+                  <td scope="row">Goal</td>
+                  <td><i><%= c.goal %></i></td>
+                </tr>
+                <tr>
+                  <td scope="row">CTA</td>
+                  <td><i><%= c.cta %></i></td>
+                </tr>
+              </tbody>
+            </table>
+        <% end %>  
+        -->  
+
+      </div>
+    
+    
+    </div>     
+
+
+    
+
+
+
+
+<% if @thistemplate.document.blank? == false %>
       <%= link_to "Download Page Requirements Document (PRD)", @thistemplate.document, :class => "btn btn-info", target: "_blank" %>
       <% else %>
       <% end %>
 
-      <% if @thistemplate.image.blank? == false %>
-      <%= link_to "Design", @thistemplate.image, :class => "btn btn-info", target: "_blank" %>
-      <% else %>
-      <% end %>
+
 
       <% if @thistemplate.image_sizes.blank? == false %>
       <%= link_to "Image Sizes", @thistemplate.image_sizes, :class => "btn btn-info", target: "_blank" %>
       <% else %>
       <% end %>
 
-      <h4>Purpose</h4>
-      <p><%= @thistemplate.page_purpose %></p>
-      <hr>
-        <!-- <h5 style="margin-top:30px;">Components</h5> -->
 
-
-              <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: @thistemplate.id}) %>
-
-              <% @cinstance.each do |c| %>
-                <div class="card" style="margin-bottom:15px; background-color:<%= c.component.component_group.color %>">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= c.component.name %>&nbsp;<span class="badge badge-light"><%= c.component.component_group.name %></span></h5>
-                    <p class="card-text"><%= c.component.goal %>
-                  </div>
-                </div>
-              <% end%>
 
 
 
