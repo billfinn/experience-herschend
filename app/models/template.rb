@@ -9,6 +9,10 @@ class Template < ApplicationRecord
    has_many :components, -> { order('template_components.position') }, :through => :template_components
    accepts_nested_attributes_for :template_components, :allow_destroy => true
 
+   has_many :template_priorities
+   has_many :priorities, -> { order('template_priorities.position') }, :through => :template_priorities
+   accepts_nested_attributes_for :template_priorities, :allow_destroy => true
+
    has_many :hierarchy_mappings
    has_many :hierarchies, :through => :hierarchy_mappings
    accepts_nested_attributes_for :hierarchy_mappings, :allow_destroy => true

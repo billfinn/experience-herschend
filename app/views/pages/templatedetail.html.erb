@@ -97,7 +97,7 @@
       <div class="nav nav-tabs  justify-content-center" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-priority-tab" data-toggle="tab" href="#nav-priority" role="tab" aria-controls="nav-priority" aria-selected="true">Priority Guide</a>
         <a class="nav-item nav-link" id="nav-design-tab" data-toggle="tab" href="#nav-design" role="tab" aria-controls="nav-design" aria-selected="false">Design</a>
-        <!-- <a class="nav-item nav-link" id="nav-component-tab" data-toggle="tab" href="#nav-component" role="tab" aria-controls="nav-component" aria-selected="false">Components</a> -->
+        <a class="nav-item nav-link" id="nav-component-tab" data-toggle="tab" href="#nav-component" role="tab" aria-controls="nav-component" aria-selected="false">Components</a>
       </div>
     </nav>
 
@@ -108,13 +108,13 @@
           <h4>Purpose</h4>
           <p><%= @thistemplate.page_purpose %></p>
 
-                  <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: @thistemplate.id}) %>
+                  <% @cinstance = TemplatePriority.order(:position).includes(:priority, :template).references(:priority, :template, :intent).where ({template_id: @thistemplate.id}) %>
 
                   <% @cinstance.each do |c| %>
-                    <div class="card" style="margin-bottom:15px; background-color:<%= c.component.component_group.color %>">
+                    <div class="card" style="margin-bottom:15px; background-color:<%= c.priority.intent.color %>;">
                       <div class="card-body">
-                        <h5 class="card-title"><%= c.component.name %>&nbsp;<span class="badge badge-light"><%= c.component.component_group.name %></span></h5>
-                        <p class="card-text"><%= c.component.goal %>
+                        <h5 class="card-title"><%= c.priority.name %>&nbsp;<span class="badge badge-light"><%= c.priority.intent.name %></span></h5>
+                        <p class="card-text"><%= c.priority.goal %>
                       </div>
                     </div>
                   <% end%>      
@@ -135,6 +135,19 @@
       
       
       <div class="tab-pane fade" id="nav-component" role="tabpanel" aria-labelledby="nav-component-tab">
+
+          <div class="tab-pane fade show active" id="nav-priority" role="tabpanel" aria-labelledby="nav-priority-tab">
+                      <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: @thistemplate.id}) %>
+
+                      <% @cinstance.each do |c| %>
+                        <div class="card" style="margin-bottom:15px; background-color:<%= c.component.component_group.color %>">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= c.component.name %>&nbsp;<span class="badge badge-light"><%= c.component.component_group.name %></span></h5>
+                            <p class="card-text"><%= c.component.goal %>
+                          </div>
+                        </div>
+                      <% end%>      
+          </div>
 
       <!--
           <% @thistemplate.components.each do |c| %>
