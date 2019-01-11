@@ -41,10 +41,10 @@
                               <div class="card-body">
                               <%= link_to tl.name, templatedetail_path(:id => tl.id, :site => @site.id) %>
 
-                                  <% @cinstance = TemplatePriority.order(:position).includes(:priority, :template).references(:priority, :template).where ({template_id: tl.id}) %>
+                                  <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: tl.id}) %>
 
                                   <% @cinstance.each do |c| %>
-                                    <div style="margin-bottom:1px; padding-left:5px;background-color:<%= c.priority.intent.color %>;">
+                                    <div style="margin-bottom:1px; padding-left:5px;background-color:<%= c.component.component_group.color %>;">
                                       <small><%= c.priority.name %></small>
 
                                     </div>
