@@ -1,10 +1,13 @@
 class Component < ApplicationRecord
   has_ancestry
-  
+
   # belongs_to :component_type
   belongs_to :component_group
   accepts_nested_attributes_for :component_group
   # accepts_nested_attributes_for :component_type
+
+  belongs_to :release_priority
+  accepts_nested_attributes_for :release_priority
 
   has_many :component_items
   has_many :text_items, -> { order('component_items.position') }, :through => :component_items

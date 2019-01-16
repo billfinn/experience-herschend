@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190116170504) do
+ActiveRecord::Schema.define(version: 20190116180856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 20190116170504) do
     t.string "interaction_notes"
     t.string "page"
     t.string "image_sizes"
-    t.integer "releasepriority_id"
+    t.integer "release_priority_id"
     t.string "ancestry"
     t.integer "position"
   end

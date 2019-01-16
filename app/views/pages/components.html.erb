@@ -34,7 +34,7 @@
                 <% end %>
           </div>
           <div class="col-sm-4">
-            <h5><%= component.name %> <span class="badge badge-pill badge-secondary"><%= component.component_group.name %></span></h5>
+            <h5><%= component.name %> <span class="badge badge-pill badge-secondary"><%= component.component_group.name %></span> <% if component.release_priority_id.blank? == false %><span class="badge badge-pill badge-info">Release <%= component.release_priority_id %></span><% else %><% end %></h5>
             <table class="table table-striped">
             <tbody>
             <% if component.invision_link.blank? %>
