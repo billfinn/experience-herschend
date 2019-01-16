@@ -1,4 +1,6 @@
 class Component < ApplicationRecord
+  has_ancestry
+  
   # belongs_to :component_type
   belongs_to :component_group
   accepts_nested_attributes_for :component_group
