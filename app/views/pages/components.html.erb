@@ -134,8 +134,22 @@
 
           </tbody>
           </table>
+
+
+
           </div>
           <div class="col-sm-5">
+
+          <% @componentvariants = Component.where( ancestry: (component.id) ) %>
+          <% @variants = @componentvariants.arrange %>
+          <p><strong>Variants</strong></p>
+          <%= arranged_tree_as_list(@variants, {:list_style => :bootstrap_list_group}) do |variant| %>
+  
+              <%= variant.name %>
+  
+          <% end %>
+
+
             <% if component.image.blank? %>
             <% else %>
             <img alt="<%= component.image %>" src="http://contentmodel-jci-assets.s3.amazonaws.com/images/components/<%= component.image %>" width="100%">
