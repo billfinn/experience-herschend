@@ -1,0 +1,2 @@
+class ReleasePriority < ApplicationRecord
+end
