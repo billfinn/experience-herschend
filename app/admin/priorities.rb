@@ -21,6 +21,8 @@ permit_params :list, :of, :attributes, :on, :model, :name, :color, :intent_id, :
 #   permitted
 # end
 
+menu parent: 'Content Model', priority: 8
+
 form do |f|
     f.semantic_errors *f.object.errors.keys
     f.inputs "Priority" do

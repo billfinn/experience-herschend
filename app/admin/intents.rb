@@ -11,5 +11,6 @@ permit_params :list, :of, :attributes, :on, :model, :name, :color
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+menu parent: 'Strategy', priority: 2
 
 end
