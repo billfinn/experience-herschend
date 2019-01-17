@@ -34,7 +34,11 @@
                 <% end %>
           </div>
           <div class="col-sm-4">
-            <h5><%= component.name %> <span class="badge badge-pill badge-secondary"><%= component.component_group.name %></span> <% if component.release_priority_id.blank? == false %><span class="badge badge-pill badge-info">Release <%= component.release_priority_id %></span><% else %><% end %></h5>
+            <h5><% if component.release_priority_id.blank? == false %><span class="badge badge-pill badge-info">Release <%= component.release_priority_id %></span><br><% else %><% end %>
+                <%= component.name %><br><span class="badge badge-pill badge-secondary">
+                <%= component.component_group.name %></span>
+            </h5>
+
             <table class="table table-striped">
             <tbody>
             <% if component.invision_link.blank? %>
@@ -141,18 +145,21 @@
           <div class="col-sm-5">
 
           <% @componentvariants = Component.where( ancestry: (component.id) ) %>
-          <% @variants = @componentvariants.arrange %>
-          <p><strong>Variants</strong></p>
-          <%= arranged_tree_as_list(@variants, {:list_style => :bootstrap_list_group}) do |variant| %>
-  
-              <%= variant.name %>
-  
+            <% if @componentvariants.blank? %>
+            <% else %>
+            <% @variants = @componentvariants.arrange %>
+            <p><strong>Variants</strong></p>
+            <%= arranged_tree_as_list(@variants, {:list_style => :bootstrap_list_group}) do |variant| %>
+    
+                <%= variant.name %>
+    
+            <% end %>
           <% end %>
 
 
             <% if component.image.blank? %>
             <% else %>
-            <img alt="<%= component.image %>" src="http://contentmodel-jci-assets.s3.amazonaws.com/images/components/<%= component.image %>" width="100%">
+            <img alt="<%= component.image %>" src="https://s3-us-west-2.amazonaws.com/hfe-assets/components/<%= component.image %>" width="100%">
             <% end %>
           </div>
 	</div>
