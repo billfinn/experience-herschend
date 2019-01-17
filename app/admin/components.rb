@@ -61,10 +61,12 @@ form do |f|
     f.input :goal
     f.input :cta
     f.input :requirements, :label => 'Requirements'
-    f.input :data, :label => 'Data', :input_html => { :class => 'tinymce' }
+    f.input :data, :label => 'Data'
+    # , :input_html => { :class => 'tinymce' }
     f.input :allowed_controls, :label => 'Allowed Controls'
     f.input :dev_notes, :label => 'Dev Notes'
-    f.input :interaction_notes, :label => 'Interaction Notes', :input_html => { :class => 'tinymce' }
+    f.input :interaction_notes, :label => 'Interaction Notes'
+    # , :input_html => { :class => 'tinymce' }
   f.inputs "Text Items" do
     f.has_many  :component_items, sortable: :position, sortable_start: 1 do |deg|
       deg.input :text_item
