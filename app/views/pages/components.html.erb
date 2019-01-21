@@ -144,7 +144,16 @@
           </div>
           <div class="col-sm-5">
 
-          <% @componentvariants = Component.where( ancestry: (component.id) ) %>
+
+
+            <% if component.image.blank? %>
+            <% else %>
+            <img alt="<%= component.image %>" src="https://s3-us-west-2.amazonaws.com/hfe-assets/components/<%= component.image %>" width="100%">
+            <% end %>
+
+
+
+            <% @componentvariants = Component.where( ancestry: (component.id) ) %>
             <% if @componentvariants.blank? %>
             <% else %>
             <% @variants = @componentvariants.arrange %>
@@ -156,11 +165,6 @@
             <% end %>
           <% end %>
 
-
-            <% if component.image.blank? %>
-            <% else %>
-            <img alt="<%= component.image %>" src="https://s3-us-west-2.amazonaws.com/hfe-assets/components/<%= component.image %>" width="100%">
-            <% end %>
           </div>
 	</div>
   <hr>
