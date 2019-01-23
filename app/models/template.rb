@@ -1,8 +1,5 @@
 class Template < ApplicationRecord
 
-   # has_many :page_template_mappings
-   # has_many :pages, :through => :page_template_mappings
-   # accepts_nested_attributes_for :page_template_mappings, :allow_destroy => true
    has_many :pages
 
    has_many :template_components
@@ -24,5 +21,10 @@ class Template < ApplicationRecord
    has_many :page_template_mappings
    has_many :pages, :through => :page_template_mappings
    accepts_nested_attributes_for :page_template_mappings, :allow_destroy => true
+
+   has_many :tag_mappings
+   has_many :tags, :through => :tag_mappings
+   accepts_nested_attributes_for :tag_mappings, :allow_destroy => true
+
 
 end

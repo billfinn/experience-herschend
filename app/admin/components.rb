@@ -11,7 +11,13 @@ ActiveAdmin.register Component do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :list, :of, :attributes, :on, :model, :name, :ancestry, :parent_id, :position, :componenttype_id, :component_group_id, :release_priority_id, :goal, :cta, :content_assets, :image, :description, :ispersonalized, :personalization_rules, :is_taggable, :tag_groups, :requirements, :data, :invision_link, :image_sizes, :interaction_notes, component_items_attributes: [:id, :component_id, :text_item_id, :position, :_destroy, :_update], component_types_attributes: [:id, :name, :_update], component_groups_attributes: [:id, :name], release_priorities_attributes: [:id, :name]
+permit_params :list, :of, :attributes, :on, :model, :name, :ancestry, :parent_id, :position, :componenttype_id, 
+:component_group_id, :release_priority_id, :goal, :cta, :content_assets, :image, :description, :ispersonalized, 
+:personalization_rules, :is_taggable, :tag_groups, :requirements, :data, :invision_link, :image_sizes, 
+:interaction_notes, component_items_attributes: [:id, :component_id, :text_item_id, :position, :_destroy, :_update], 
+component_types_attributes: [:id, :name, :_update], component_groups_attributes: [:id, :name], release_priorities_attributes: [:id, :name],
+:tag_ids => [], tag_mappings_attributes: [:id, :tag_id, :component_id, :order, :destroy]
+
 # or
 #
 # permit_params do
@@ -67,6 +73,14 @@ form do |f|
     f.input :dev_notes, :label => 'Dev Notes'
     f.input :interaction_notes, :label => 'Interaction Notes'
     # , :input_html => { :class => 'tinymce' }
+
+    f.inputs "Tags" do
+        f.has_many :tag_mappings, sortable: :order, sortable_start: 1 do |deg|
+          deg.input :tag
+          deg.input :_destroy, :as => :boolean, :label => "Remove?"
+        end
+    end
+
   f.inputs "Text Items" do
     f.has_many  :component_items, sortable: :position, sortable_start: 1 do |deg|
       deg.input :text_item

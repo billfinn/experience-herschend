@@ -138,12 +138,17 @@
 
           <div class="tab-pane fade show active" id="nav-priority" role="tabpanel" aria-labelledby="nav-priority-tab">
                       <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: @thistemplate.id}) %>
-
                       <% @cinstance.each do |c| %>
                         <div class="card" style="margin-bottom:15px; background-color:<%= c.component.component_group.color %>">
                           <div class="card-body">
                             <h5 class="card-title"><%= c.component.name %>&nbsp;<span class="badge badge-light"><%= c.component.component_group.name %></span></h5>
                             <p class="card-text"><%= c.component.goal %>
+                            <p><strong>Tags</strong><br>
+                            <% @tags = TagMapping.order(:order).includes(:component, :tag).references(:component, :tag).where ({component_id: c.id}) %>
+                            <% @tags.each do |t| %>
+                              <%= t.id %> <%= t.name %><br>
+                            <% end %>
+
                           </div>
                         </div>
                       <% end%>      

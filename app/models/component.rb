@@ -1,10 +1,8 @@
 class Component < ApplicationRecord
   has_ancestry
 
-  # belongs_to :component_type
   belongs_to :component_group
   accepts_nested_attributes_for :component_group
-  # accepts_nested_attributes_for :component_type
 
   belongs_to :release_priority
   accepts_nested_attributes_for :release_priority
@@ -15,6 +13,12 @@ class Component < ApplicationRecord
 
   has_many :template_components
   has_many :templates, :through => :template_components
+  accepts_nested_attributes_for :template_components
+
+  has_many :tag_mappings
+  has_many :tags, :through => :tag_mappings
+  accepts_nested_attributes_for :tag_mappings, :allow_destroy => true
+
 
 
 end

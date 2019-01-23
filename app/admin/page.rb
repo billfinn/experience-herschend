@@ -44,9 +44,6 @@ form do |f|
     f.input :image_file_name
     # f.input :image, required: true, as: :file
     tabs do
-      # tab :Template do
-      #   f.input :template_ids, as: :radio, collection: Template.all.map{|template| [template.name, template.id]}
-      # end
       tab :Tags do
         f.input :tag_ids, as: :check_boxes, collection: Tag.all.map{|tag| [tag.name, tag.id]}
       end
