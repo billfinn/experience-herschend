@@ -74,12 +74,12 @@ form do |f|
     f.input :interaction_notes, :label => 'Interaction Notes'
     # , :input_html => { :class => 'tinymce' }
 
-    f.inputs "Tags" do
-        f.has_many :tag_mappings, sortable: :order, sortable_start: 1 do |deg|
-          deg.input :tag
-          deg.input :_destroy, :as => :boolean, :label => "Remove?"
-        end
-    end
+    # f.inputs "Tags" do
+    #     f.has_many :tag_mappings, sortable: :order, sortable_start: 1 do |deg|
+    #       deg.input :tag
+    #       deg.input :_destroy, :as => :boolean, :label => "Remove?"
+    #     end
+    # end
 
   f.inputs "Text Items" do
     f.has_many  :component_items, sortable: :position, sortable_start: 1 do |deg|
