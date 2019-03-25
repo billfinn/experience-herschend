@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get  '/personachart/', to: 'pages#personachart', as: 'personachart'
   get  '/page/:id', to: 'pages#page', as: 'page'
   get   "/pages/:page" => "pages#show"
+  resources :priority
   get  '/review', to: 'pages#review'
   get  '/roadmap', to: 'pages#roadmap'
   get  '/searchtest', to: 'pages#searchtest'

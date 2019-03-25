@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Experience Guide | HFE</title>
+    <title>HFE Design System</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -44,58 +44,24 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <nav id="myNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <nav id="myNavbar" class="navbar navbar-light fixed-top bg-light navbar-expand-lg shadow flex-md-nowrap" role="navigation">
+        
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <a class="navbar-brand" href="#"><img src="/assets/chrome/hfe_design_system.png" alt = "Herschend Family Entertainment" height="30" style="margin:0 13px 0 0;">HFE Design System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <%= link_to image_tag("https://hfe-assets.s3.amazonaws.com/ui/HFE_Leaf.png", :alt => "Herschend Family Entertainment Experience Guide", :style => "height:30px; margin: 0px 20px 0px 0px;") + "HFE Experience Guide", home_path, :class => "navbar-brand" %>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#">Visual Design</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Wireframes</a></li>
+          <li class="nav-item"><%= link_to "Experience Guide", home_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Admin", "/admin", class: "nav-link" %></li>
+        </ul>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="nav navbar-nav mr-auto">
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Migration & Publishing</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <%#= link_to "Legacy Site List", legacysites_path, class: "dropdown-item" %>
-                <%#= link_to "Taxonomy", taxonomysite_path(1), class: "dropdown-item" %>
-                <%#= link_to "Sitemap", sitemapdetail_path(3), class: "dropdown-item" %>
-                <%#= link_to "Web Footprint (Sites)", webfootprint_path, class: "dropdown-item" %>
-                <%#= link_to "Content Mapping", contentmapping_path, class: "dropdown-item" %>
-              </div>
-            </li> -->
-            <li class="nav-item"><%= link_to "Content Review Checklist", review_path, class: "nav-link" %></li>
-            <!-- <li class="nav-item"><%= link_to "Design System", dsbenefits_path, class: "nav-link" %></li> -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Strategy</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <%= link_to "Content Roadmap", roadmap_path, class: "dropdown-item" %>
-                <%= link_to "Sitemap", sitemapdetail_path(3), class: "dropdown-item" %>
-                <%= link_to "Taxonomy", taxonomysite_path(3), class: "dropdown-item" %>
-                <%= link_to "Messaging Architecture", messagingdetail_path(3), class: "dropdown-item" %>
-                <%= link_to "Engagement Value", engagementvaluedetail_path(3), class: "dropdown-item" %>
-                <!-- <a class="dropdown-item" href="#">SEO</a> -->
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Creation</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <%= link_to "Content Model", templates_path, class: "dropdown-item" %>
-                <%= link_to "Component List", components_path, class: "dropdown-item" %>
-                <%= link_to "Flows", flowdetail_path(3), class: "dropdown-item" %>
-                <%#= link_to "Messaging Hierarchy", messagingdetail_path(1), class: "dropdown-item" %>
-                <!-- <a class="dropdown-item" href="#">SEO</a> -->
-              </div>
-            </li>
-            <!-- <li class="nav-item"><a class="nav-link" href="#">Governance</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Measurement</a></li> -->
-            <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
-          </ul>
-
-            <span class="navbar-text">
-              <small>
+          <span class="navbar-text mr-5">
+            <small>
               <% if admin_user_signed_in? %>
                 Logged in as <strong><% if current_admin_user.first_name? %><%= current_admin_user.first_name %> <%= current_admin_user.last_name %><% else %><%= current_admin_user.email %><% end %></strong>
                 <%#= link_to 'Edit profile', edit_admin_user_password_path, :class => 'navbar-link' %> |
@@ -103,27 +69,16 @@
               <% else %>
                 <%= link_to "Sign up", new_admin_user_registration_path, :class => 'navbar-link'  %> |
                 <%= link_to "Login", new_admin_user_session_path, :class => 'navbar-link'  %>
-              <% end %></small>
-            </span>
-            <!-- </li> -->
-
-            <!-- Alternative display of logged-in state; reference: https://guides.railsgirls.com/devise -->
-            <!-- <p class="navbar-text pull-right"><small>
-              <% if admin_user_signed_in? %>
-                Logged in as <strong><%= current_admin_user.email %></strong>
-                <%#= link_to 'Edit profile', edit_admin_user_password_path, :class => 'navbar-link' %> |
-                <%= link_to "Logout", destroy_admin_user_session_path, method: :delete, :class => 'navbar-link'  %>
-              <% else %>
-                <%= link_to "Sign up", new_admin_user_registration_path, :class => 'navbar-link'  %> |
-                <%= link_to "Login", new_admin_user_session_path, :class => 'navbar-link'  %>
               <% end %>
-            </small></p> -->
-        </div>
+            </small>
+          </span>
       </div>
-    </nav>
 
-    <div class="container">
+</nav>
 
+
+<div class="container-fluid">
+  <div class="row">
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
       <% end %>
@@ -131,8 +86,11 @@
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
 
+
+
     <%= yield %>
 
   </div>
+</div>
   </body>
 </html>

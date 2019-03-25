@@ -1,7 +1,20 @@
-<div class="well">
+
 View Content Model for
   <% @sites = ::Site.order(:name) %>
   <% @sites.each do |site|  %>
     <%= link_to site.name, templatelist_path(site) %><br>
   <% end %>
-</div>
+
+
+<hr>
+
+<h5><%= @site.name %></h5>
+<ol>
+  <% @templatelist.each do |listitem| %>
+    <li>
+
+      <%= link_to listitem.name, templatedetail_path(:id => listitem.id, :site => @site.id) %>
+
+    </li>
+  <% end %>
+</ol>

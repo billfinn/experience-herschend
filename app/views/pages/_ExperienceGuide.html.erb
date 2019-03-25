@@ -1,0 +1,54 @@
+
+<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+<span>Strategy</span>
+<a class="d-flex align-items-center text-muted" href="#">
+  <!-- <span data-feather="plus-circle"></span> -->
+</a>
+</h6>            
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <%= link_to "Content Roadmap", roadmap_path, class: "nav-link" %>  
+    </li>
+    <li class="nav-item">
+        <%= link_to "Sitemap", sitemapdetail_path(3), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+        <%= link_to "Taxonomy", taxonomysite_path(3), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+        <%= link_to "Messaging Architecture", messagingdetail_path(3), class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+        <%= link_to "Engagement Value", engagementvaluedetail_path(3), class: "nav-link" %>
+    </li>
+</ul>
+
+<hr class="mt-5 ml-3 mr-3">
+<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+<span>Content Model</span>
+<a class="d-flex align-items-center text-muted" href="#">
+  
+</a>
+</h6>
+<ul class="nav flex-column mb-2">
+    <li class="nav-item">
+    <%= link_to "Component List", components_path, class: "nav-link" %>  
+        <span data-feather="plus-circle"></span>
+    </li>
+
+<li class="nav-item">
+  <a class="nav-link" href="#">
+    Sites
+    <span data-feather="plus-circle"></span>
+  </a>
+        <ul class="nav flex-column mb-2">
+
+            <% @sites = ::Site.order(:name) %>
+            <% @sites.each do |site|  %>
+                <li class="nav-item"><%= link_to site.name, templatelist_path(site), :class => "subnav-link" %><br>
+            <% end %>
+
+        </ul>
+</li>
+
+</ul>

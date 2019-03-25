@@ -1,29 +1,18 @@
 <% @templatelist = ::Template.joins( :site_template_mappings ).where( site_template_mappings: { site_id: (params[:id]) }).order(:name) %>
 <% @site = Site.find(params[:id]) %>
 
-  <div class="row">
     <!-- left column -->
-		<div class="col-sm-3">
+		<nav class="col-md-3 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
 
-      <%= render "siteContentModel" %>
-
-      <hr>
-
-      <h5><%= @site.name %></h5>
-      <ol>
-        <% @templatelist.each do |listitem| %>
-          <li>
-
-            <%= link_to listitem.name, templatedetail_path(:id => listitem.id, :site => @site.id) %>
-
-          </li>
-        <% end %>
-      </ol>
+      <%= render "ExperienceGuide" %>
 
 
-		</div>
-    <!-- right column -->
-		<div class="col-sm-9">
+      </div>
+    </nav>
+    
+<!-- right column -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-9">
 
       <h1>Templates<small class="text-muted"> <%= @site.name %></small></h1>
       <%= link_to "Realtime Boards : Content Model", "https://realtimeboard.com/app/board/o9J_kytiCp4=/", :class => "btn btn-info", target: "_blank" %>
@@ -47,7 +36,6 @@
                                   <% @cinstance.each do |c| %>
                                     <div style="margin-bottom:1px; padding-left:5px;background-color:<%= c.component.component_group.color %>;">
                                       <small><%= c.component.name %></small>
-                                    
                                     </div>
                                   <% end%>
                                 </div>
@@ -57,18 +45,23 @@
                             <% end %>
                       </div>
                       </div>
-      </div>
+              
+              
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm">
+                    
+                            <%= render "footer" %>
+                    
+                        </div>
+                      </div>              
+              
+              
+     
+</main>  
+                    
+</div>
+</div>
 
 
-    </div>
 
-    </div>
-
-  	<hr>
-  <div class="row">
-    <div class="col-sm">
-
-        <%= render "footer" %>
-
-    </div>
-  </div>

@@ -1,0 +1,181 @@
+<% @site = Site.find(3) %>
+
+  <div class="row">
+		<div class="col-sm">
+
+			<h1><%#= @site.name %><small class="text-muted"> Components</small></h1>
+
+        <hr>
+        <!-- IN PROGRESS PILL NAV FILTER LISTING BY GROUP -->
+        <% @componentgroups = ComponentGroup.all %>
+        <!-- <ul class="nav nav-pills">
+          <% @componentgroups.each do |group| %>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#"><%= group.name %></a>
+          </li>
+          <% end %>
+        </ul> -->
+
+    </div>
+  </div>
+
+
+
+
+        <% @components = Component.all.order('name ASC') %>
+        <% @components.each do |component| %>
+        <% @templates = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({component_id: component.id})  %>
+  <div class="row">
+          <div class="col-sm-3">
+            <p>Applies to Templates:<br>
+              <%#= safe_join ( @templates.all.map { |x| [link_to(x.template.name, templatedetail_path(id: => x.template.id, site: => @site.id)),"<br>".html_safe] }) %>
+              <% @templates.each do |t| %>
+                <%= link_to t.template.name, templatedetail_path(:id => t.template.id, :site => @site.id) %><br>
+                <% end %>
+          </div>
+          <div class="col-sm-4">
+            <h5><% if component.release_priority_id.blank? == false %><span class="badge badge-pill badge-info">Release <%= component.release_priority.name %></span><br><% else %><% end %>
+                <%= component.name %><br><span class="badge badge-pill badge-secondary">
+                <%= component.component_group.name %></span>
+            </h5>
+
+            <table class="table table-striped">
+            <tbody>
+            <% if component.invision_link.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top" colspan="2"><small class="text-muted"><%= link_to "Invision Link", component.invision_link, target: "_blank" %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.image_sizes.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Image Sizes</strong></small></td>
+              <td valign="top"><small class="text-muted"><%= component.image_sizes %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.page.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Page</strong></small></td>
+              <td valign="top"><small class="text-muted"><%= component.page %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.requirements.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Requirements</strong></small></td>
+              <td valign="top"><small class="text-muted"><%=raw component.requirements %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.interaction_notes.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Interaction Notes</strong></small></td>
+              <td valign="top"><small class="text-muted"><%=raw component.interaction_notes %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.full_width.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Full Width:</strong></td>
+              <td valign="top"><small class="text-muted"><% if component.full_width == 1 %>Yes<% else %>No<% end %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.personalization_rules.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Personalization</strong></small></td>
+              <td valign="top"><small class="text-muted"><%=raw component.personalization_rules %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.data.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Data</strong></small></td>
+              <td valign="top"><small class="text-muted"><%=raw component.data %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.allowed_controls.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Allowed Controls</strong></small></td>
+              <td valign="top"><small class="text-muted"><%=raw component.allowed_controls %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.need_info.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Need Info</strong></small></td>
+              <td valign="top"><small class="text-muted"><% if component.need_info == "x" %>Yes<% else %>No<% end %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.design_questions.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Design Questions</strong></small></td>
+              <td valign="top"><small class="text-muted"><%=raw component.design_questions %></small></td>
+            </tr>
+            <% end %>
+
+            <% if component.dev_notes.blank? %>
+            <% else %>
+            <tr>
+              <td valign="top"><small class="text-muted"><strong>Dev Notes</strong></small></td>
+              <td valign="top"><small class="text-muted"><%=raw component.dev_notes %></small></td>
+            </tr>
+            <% end %>
+
+          </tbody>
+          </table>
+
+
+
+          </div>
+          <div class="col-sm-5">
+
+
+
+            <% if component.image.blank? %>
+            <% else %>
+            <img alt="<%= component.image %>" src="https://s3-us-west-2.amazonaws.com/hfe-assets/components/<%= component.image %>" width="100%">
+            <% end %>
+
+
+
+            <% @componentvariants = Component.where( ancestry: (component.id) ) %>
+            <% if @componentvariants.blank? %>
+            <% else %>
+            <% @variants = @componentvariants.arrange %>
+            <p><strong>Variants</strong></p>
+            <%= arranged_tree_as_list(@variants, {:list_style => :bootstrap_list_group}) do |variant| %>
+    
+                <%= variant.name %>
+    
+            <% end %>
+          <% end %>
+
+          </div>
+	</div>
+  <hr>
+            <% end %>
+
+
+
+  <div class="row">
+    <div class="col-sm">
+
+              <%= render "footer" %>
+
+    </div>
+  </div>

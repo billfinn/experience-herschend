@@ -13,7 +13,7 @@ class Component < ApplicationRecord
 
   has_many :template_components
   has_many :templates, :through => :template_components
-  accepts_nested_attributes_for :template_components
+  # accepts_nested_attributes_for :template_components
 
   has_many :tag_mappings
   has_many :tags, :through => :tag_mappings
