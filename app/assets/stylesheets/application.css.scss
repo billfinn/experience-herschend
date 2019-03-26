@@ -122,6 +122,27 @@
  * Navbar
  */
 
+ .navbar-nav .nav-item {
+   padding-left: 3rem;
+ }
+ .navbar-nav a {
+  margin-bottom: -2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 4px solid transparent;
+ }
+
+ .navbar-nav a:hover {
+  border-bottom: 4px solid #053451;
+ }
+
+ .navbar-nav a.active {
+  border-bottom: 4px solid #053451;
+ }
+
+ .navbar-nav ul {
+   float: right;
+ }
+
 .navbar-brand {
   padding-top: 2rem;
   padding-bottom: 2rem;
