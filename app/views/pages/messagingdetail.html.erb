@@ -16,13 +16,31 @@
             <div class="row">
             <div class="col-sm">
 
-                <h1><%= @site.name %><small class="text-muted"> Messaging Architecture</small></h1>
-
             <%= render "siteMessaging" %>
-            <hr>
-            </div>
-            </div>
 
+            <nav>
+                <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                <% @sites.each do |sitetab|  %>
+                    <% if sitetab.id == @site.id %>
+                    <small><a class="nav-item nav-link active" id="nav-<%= sitetab.id %>-tab" data-toggle="tab" href="/messagingdetail/<%= @site.id %>" role="tab" aria-controls="nav-<%= sitetab.id %>" aria-selected="true"><%= sitetab.name %></a></small>
+                    <% else %>
+                    <small><a class="nav-item nav-link" id="nav-<%= sitetab.id %>-tab" href="/messagingdetail/<%= sitetab.id %>" role="tab" aria-controls="nav-<%= sitetab.id %>" aria-selected="false"><%= sitetab.name %></a></small>
+                    <% end %>
+                <% end %>
+                </div>
+            </nav>      
+
+            <h1 style="margin-top: 20px">Messaging Architecture <small class="text-muted"> <%= @site.name %></small></h1>
+
+<!-- BEGIN TAB PANES -->
+
+            <div class="tab-content" id="nav-tabContent">
+            <% @sites.each do |sitecontent|  %>
+            <% if sitecontent.id == @site.id %>
+            <div class="tab-pane fade show active" id="nav-<%= sitecontent.id %>" role="tabpanel" aria-labelledby="nav-<%= sitecontent.id %>-tab">
+
+
+<!-- BEGIN TAB CONTENT -->
 
             <% @messages = AudienceMessage.includes(:hierarchy, :audience).where site_id: (params[:id]) %>
             <% @messages.group_by(&:hierarchy).sort.each do |hierarchy, message| %>
@@ -49,9 +67,16 @@
             </div>
             </div>
                 <% end %>
+<!-- END TAB CONTENT -->
 
-              
-                      <hr>
+ <!-- END TAB PANES -->               
+                </div>
+                <% end %>
+                <% end %>
+                </div>
+
+
+                <hr>
                       <div class="row">
                         <div class="col-sm">
                     
