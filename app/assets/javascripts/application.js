@@ -46,3 +46,19 @@ $(document).on("turbolinks:load", function() {
     Turbolinks.visit(this.href);
   });
 });
+
+$(document).ready(function () {
+  // $(".navbar-nav a").addClass("active");
+  // alert("test");
+
+  // var removeActive = function() {
+  //   $( ".navbar-nav a" ).removeClass("active");
+  // };
+
+  // $( ".navbar-nav a" ).click(function() {
+  //     removeActive();
+  //     $(this).addClass( "active" );
+  // });
+  
+});
+

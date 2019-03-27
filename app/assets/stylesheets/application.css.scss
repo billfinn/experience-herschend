@@ -127,6 +127,12 @@
  * Navbar
  */
 
+//  .navbar-nav > li {
+//   float: left;
+//   position: relative;
+// }
+
+
  .navbar-nav .nav-item {
    padding-left: 3rem;
  }
@@ -143,6 +149,14 @@
  .navbar-nav a.active {
   border-bottom: 4px solid #053451;
  }
+
+ .navbar-nav a::after {
+  border-bottom: 4px solid #053451;
+  content: " ";
+  left: 0;
+  // position: absolute;
+  right: 0;
+}
 
  .navbar-nav ul {
    float: right;
