@@ -15,22 +15,24 @@
 <!-- right column -->
 <main role="main" class="col-md-9 ml-sm-auto mt-4 col-lg-9">
 
-            <div class="row">
-            <div class="col-sm">
+        <div class="row">
+          <div class="col-sm">
 
+            <h1 style="margin-top: 0px"><small class="text-muted"> Page</small></h1>
 
+            <!-- Display Component relationships -->
 
-            <h1 style="margin-top: 0px"><small class="text-muted"> <%= @site.name %></small></h1>
-
-
+            <% @thispage.templates.each do |a| %>
+            <p><strong>Layout:</strong> <%= link_to a.name, templatedetail_path(:id => a.id, :site => @site.id) %></p>
+            <% end %>
+            
+            <p><strong>All Layouts:</strong>  <%= link_to @site.name, templatelist_path(:id => @site.id) %>
+            <p><strong>Site Map:</strong> <%= link_to @site.name, sitemapdetail_path(:id => @site.id) %>
 
 
 
 
             <% @thispage.templates.each do |b| %>
-
-                <h5>Template</h5>
-                <p><%= link_to b.name, templatedetail_path(:id => b.id, :site => @site.id) %></p>
       
                     <!-- display Messaging Hierarchy assigned to the template for this page -->
                     <% b.hierarchies.each do |h| %>
@@ -41,8 +43,8 @@
                 <% end %>
       
             <% @thispage.templates.each do |a| %>
-            <h5>Template Components</h5>
-              <p><small>Click to view detail and customize template content for page.</small></p>
+            <p><strong>Layout Components:</strong><br>
+              <small>Click to customize component content for this page.</small></p>
       
               <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: a.id}) %>
               <ol>
