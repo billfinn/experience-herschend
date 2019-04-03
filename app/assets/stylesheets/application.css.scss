@@ -38,13 +38,6 @@ h3 {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-h4 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-h5 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
 
 
 
@@ -63,6 +56,8 @@ h5 {
  .nav-link {
   display: inline-block;
 }
+
+
 
  .sidebar {
   position: fixed;
@@ -170,6 +165,7 @@ h5 {
   margin-bottom: -2.5rem;
   padding-bottom: 2.5rem;
   border-bottom: 4px solid transparent;
+  font-family: Georgia, 'Times New Roman', Times, serif;
  }
 
  .navbar-nav a:hover {
