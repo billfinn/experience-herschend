@@ -1,0 +1,86 @@
+
+
+    <!-- left column -->
+		<nav class="col-md-3 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+
+      <%= render "VisualGuide" %>
+
+
+      </div>
+    </nav>
+    
+<!-- right column -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-9">
+
+<div style="margin: 2.5em 0 5em 0;">
+<small style="text-transform: uppercase;">HFE Visual Design Guide</small>  
+<h1 class="display-4" style="margin: 0 0 1em 0;">Principles</h1>
+  <p>These design principles are a set of guidelines that define good design for HFE and all of the brand’s properties. These principles allow us to gracefully scale the system from one property to another, while maintaining a consistent aesthetic as part of the HFE portfolio.
+
+  <p>This design system creates safety in the knowledge that every element you are using is consistent with other members on the team. Whether in the website, print, or apps the design system gives us a good consistent basis to start from.
+  
+  <p>The visual design system was built with these principles in mind:</p>
+
+</div>
+
+<div class="row">
+        <div class="col-lg-4">
+        <figure class="text-center">
+        <%= image_tag("/design-system/icon_brand-experience.png", alt: "Consistent Brand Experience", height: "90", width: "99") %>
+        <figcaption class="figure-caption" style="text-transform: uppercase; margin: 2em 0 0 0;">Consistent Brand Experience</figcaption>  
+        </figure>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-lg-4">
+            <figure class="text-center">
+            <%= image_tag("/design-system/icon_resuable.png", alt: "Flexible, Scalable Components", height: "90", width: "100") %>
+            <figcaption class="figure-caption" style="text-transform: uppercase; margin: 2em 0 0 0;">Flexible, Scalable Components</figcaption>  
+            </figure>
+        
+
+        </div><!-- /.col-sm-4 -->
+        <div class="col-lg-4">
+            <figure class="text-center">
+            <%= image_tag("/design-system/icon_ada-compliant.png", alt: "Accessibility First", height: "90", width: "90") %>
+            <figcaption class="figure-caption" style="text-transform: uppercase; margin: 2em 0 0 0;">Accessibility First</figcaption>  
+            </figure>
+
+        </div><!-- /.col-sm-4 -->
+</div>
+
+<div class="row">
+<div class="col-lg-9">
+<p>&nbsp;<p>&nbsp;
+<h6>Before adding new components to the design system, 
+remember the following guidelines:</h6>
+
+<ul>
+    <li>Does this component represent a new content need?</li>
+    <li>Is there an existing component that can be used or modified?</li>
+    <li>What pieces of the design system can be re-used?</li>
+</ul>
+</div>
+</div>
+
+
+  
+              
+              
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm">
+                    
+                            <%= render "footer" %>
+                    
+                        </div>
+                      </div>              
+              
+              
+     
+</main>  
+                    
+</div>
+</div>
+
+
+

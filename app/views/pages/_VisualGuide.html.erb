@@ -1,0 +1,42 @@
+
+<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+<span>GLOBAL BRAND ELEMENTS</span>
+<a class="d-flex align-items-center text-muted" href="#">
+  <!-- <span data-feather="plus-circle"></span> -->
+</a>
+</h6>            
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <%= link_to "Principles", visualdesign_principles_path, title: "Visual Design Principles", class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+        <%= link_to "Grid", visualdesign_grid_path, title: "Visual Design Grid", class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+        <%= link_to "Components", components_path, title: "Components", class: "nav-link" %>    </li>
+</ul>
+
+<hr class="mt-5 ml-3 mr-3">
+<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+<span>PROPERTY BRAND ELEMENTS</span>
+<a class="d-flex align-items-center text-muted" href="#">
+  
+</a>
+</h6>
+<ul class="nav flex-column mb-2">
+
+
+<li class="nav-item">
+  <a class="nav-link" href="#">
+    Dollywood
+    <span data-feather="plus-circle"></span>
+  </a>
+        <ul class="nav flex-column mb-2">
+
+                <li class="nav-item"><%= link_to "Typography", visualdesign_dw_typography_path, title: "Dollywood Typography", class: "subnav-link" %></li>
+
+                
+        </ul>
+</li>
+
+</ul>

@@ -1,0 +1,124 @@
+
+
+    <!-- left column -->
+		<nav class="col-md-3 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+
+      <%= render "VisualGuide" %>
+
+
+      </div>
+    </nav>
+    
+<!-- right column -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-9">
+
+<div style="margin: 2.5em 0 5em 0;">
+<small style="text-transform: uppercase;">HFE Visual Design Guide</small>  
+<h1 class="display-4" style="margin: 0 0 1em 0;">The Grid</h1>
+  <p>The grid was designed with a fluid and responsive system in mind. These are starting points for designers and developers based on standard device dimensions.</p>
+
+</div>
+
+<h6 style="margin: 0 0 2em 0;">Mobile</h6>
+<div class="row">
+
+        <div class="col-sm-6 text-center">
+            <%= image_tag("/design-system/grid_mobile.png", alt: "Mobile Grid") %>
+        </div>
+
+        <div class="col-sm-6">
+        <p class="font-weight-bold">4 column grid</p>
+
+        <p>Mobile has the least need for variable layouts, and the highest need for a clean, reliable page design. The 4 column grid allows for text and other page components to stack and order nicely.</p>
+
+
+        <p class="font-weight-bold">Why 320px?</p>
+
+        <p>The grid is based on the most common device size our users browse on. A good portion of our user base does not have the largest phone dimensions. With that, while 320px is relatively small, we use that as our standard size in order to scale gracefully up.</p>
+
+
+        <p class="font-weight-bold">What does 320px mean to designers  and developers? </p>
+
+        <p>Most, if not all, actively used phones now utilize the so called “retina” view. What that means for design: Save out all images @2x, or at least at 640px (if not higher) in pixel width in order to avoid pixellated images.</p>
+        
+        </div>
+</div>
+
+<hr style="margin-top: 5em;">
+<h6 style="margin: 0 0 2em 0;">Tablet</h6>
+<div class="row">
+
+        <div class="col-sm-6 text-center">
+            <%= image_tag("/design-system/grid_tablet.png", alt: "Tablet Grid") %>
+        </div>
+
+        <div class="col-sm-6">
+
+            <p class="font-weight-bold">8 column grid</p>
+
+            <p>Tablet uses a six column grid for page layouts.  This allows for the most flexible designs that can still emulate most of the look and feel of desktop, while also providing a distinct and eye-catching layout for tablet devices.</p>
+
+
+            <p class="font-weight-bold">Why 768px?</p>
+
+            <p>The grid is based on the most common device size our users browse on. Luckily, tablets are a bit more standardized and 768px is pretty much universal as a starting point in designs. </p>
+
+
+            <p class="font-weight-bold">What does 768px mean to designers  and developers? </p>
+
+            <p>As a middle ground between the largest mobile sizes and the smallest desktop sizes, tablet images can usually work with either desktop or mobile images. For HFE in particular, we recommend using desktop sizes which are sized down with the browser’s scale.</p>
+        
+        </div>
+</div>
+
+<hr style="margin-top: 5em;">
+<h6 style="margin: 0 0 2em 0;">Desktop</h6>
+<div class="row">
+
+        <div class="col-sm-6 text-center">
+            <%= image_tag("/design-system/grid_desktop.png", alt: "Desktop Grid") %>
+        </div>
+
+        <div class="col-sm-6">
+
+            <p class="font-weight-bold">12 column grid</p>
+            <p>Desktop uses the standard 12-column grid for layouts. This allows for the most flexible designs, between items that span the whole page length to two, three or four column items.</p>
+            
+            
+            <p class="font-weight-bold">Why 1440px?</p>
+            
+            <p>The grid is based on the most common and largest size for desktop. While many desktop dimensions are both far smaller and far larger than this, 1440px is a safer middle ground to design and account for.</p>
+            
+            
+            <p class="font-weight-bold">What does 1440px mean to designers  and developers? </p>
+            
+            <p>Remember, quite a few desktop monitors now utilize 4k and other high definition dimensions. With this, 1440px is the smallest size needed. Images that are expected to go full-bleed (i.e. edge-to-edge) in browser windows should be scaled at ratios of 1920px width at minimum. At this large pixel size, it is important to remember to also save at the smallest MB possible while still retaining image quality.</p>
+
+        </div>
+</div>
+
+
+
+
+  
+              
+              
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm">
+                    
+                            <%= render "footer" %>
+                    
+                        </div>
+                      </div>              
+              
+              
+     
+</main>  
+                    
+</div>
+</div>
+
+
+

@@ -42,6 +42,11 @@ Rails.application.routes.draw do
   get 'tree/naqtags', :defaults => { :format => 'json' }
   get 'tree/dollywoodmap', :defaults => { :format => 'json' }
   get 'tree/naqmap', :defaults => { :format => 'json' }
+  get  '/visualdesign', to: 'pages#viz_home'
+  get  '/visualdesign/principles', to: 'pages#viz_principles'
+  get  '/visualdesign/grid', to: 'pages#viz_grid'
+  get  '/visualdesign/components', to: 'pages#viz_components'
+  get  '/visualdesign/dw/typography', to: 'pages#viz_dw_typography'
   get  '/api/v1/tag/data', :defaults => { :format => 'json' }
   get  '/webfootprint', to: 'pages#webfootprint'
   get '/ds-benefits', to: 'pages#ds-benefits', as: 'dsbenefits'
