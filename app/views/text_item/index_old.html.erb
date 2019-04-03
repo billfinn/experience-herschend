@@ -4,36 +4,22 @@
     @site = Site.find(params[:site])
     @page = Page.find(params[:page]) %>
 
-    <!-- left column -->
-		<nav class="col-md-3 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-
-      <%= render "./pages/ExperienceGuide" %>
-
-
-      </div>
-    </nav>
-    
-<!-- right column -->
-<main role="main" class="col-md-9 ml-sm-auto col-lg-9">
-
 <div class="row">
-  <div class="col-sm">
+  <div class="col-sm-3">
 
+        <div style="margin-top: 20px;">
+        <%= render "/pages/siteMap" %>
+        </div>
 
+    <h3 style="margin-top: 40px;">Structure</h3>
 
-        <h1 style="margin-top: 0px"><small class="text-muted">Component</small></h1>
-
-            <!-- Display Component relationships -->
-            
-            <p><strong>Page:</strong> <%= link_to @page.name, page_path(:id => @page.id, :site => @site.id) %>
-            <p><strong>Layout:</strong> <%= link_to @template.name, templatedetail_path(:id => @template.id, :site => @site.id ) %>
-            <p><strong>All Layouts:</strong>  <%= link_to @site.name, templatelist_path(:id => @site.id) %>
-            <p><strong>Site Map:</strong> <%= link_to @site.name, sitemapdetail_path(:id => @site.id) %>
-            <!-- <p><strong>Instance:</strong> <%= @instance.id %> -->
+    <!-- Display Component relationships -->
+          <p>Page: <br><%= link_to @page.name, page_path(:id => @page.id, :site => @site.id) %>
+            <p>Component: <br><%= @component.name %>
+            <p>Instance: <br><%= @instance.id %>
 
               <% @page.templates.each do |a| %>
-              <p><strong>Layout Components:</strong>
+              <p>Template Components:
                 <% @cinstance = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({template_id: a.id}) %>
                 <ol>
                   <!-- top version includes component instance ID for debugging -->
@@ -42,11 +28,17 @@
                 </ol>
               <% end %>
 
-
+              <p>Page: <br><%= link_to @page.name, page_path(:id => @page.id, :site => @site.id) %>
+                <p>Template: <br><%= link_to @template.name, templatedetail_path(:id => @template.id, :site => @site.id ) %>
+                  <p>Site: <br><%= link_to @site.name, sitemapdetail_path(:id => @site.id) %>
 
   </div>
   <div class="col-sm-9">
-    <h1><%= @component.name %></h1>
+    <h1>Component</h1>
+    <!-- typeahead search -->
+    <div id="the-basics">
+      <input class="typeahead" type="text" placeholder="States of USA">
+    </div>
 <!-- Component Copy for Specific Page -->
 <hr>
 <!-- <b>Component Items for Page</b> -->
@@ -99,7 +91,7 @@
 <p>&nbsp;</p>
     <div class="card">
       <div class="card-header">
-        <h3>Content + Attributes</h3>
+        <h3><%= @component.name %> <small class="text-muted">Component</small></h3>
       </div>
       <div class="card-body">
 
@@ -236,13 +228,21 @@
   </tbody>
 </table>
       </div>
-    </div>              
-              
-     
-</main>  
-                    
+    </div>
+
+
+
+
+
+
+
 </div>
 </div>
+<hr>
+<div class="row">
+<div class="col-sm">
 
+          <%= render "/pages/footer" %>
 
-
+</div>
+</div>
