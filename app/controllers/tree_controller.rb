@@ -12,7 +12,7 @@ class TreeController < ApplicationController
   end
 
   def dollywoodmap
-    @pages = Page.for_dollywood.arrange
+    @pages = Page.for_dollywood.arrange(:order => :name)
     respond_to do |format|
       format.json {
         render :json =>  Page.json_tree(@pages)
@@ -30,7 +30,7 @@ class TreeController < ApplicationController
   end
 
   def naqmap
-    @pages = Page.for_naq.arrange
+    @pages = Page.for_naq.arrange(:order => :name)
     respond_to do |format|
       format.json {
         render :json =>  Page.json_tree(@pages)

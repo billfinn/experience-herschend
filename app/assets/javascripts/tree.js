@@ -39,17 +39,22 @@ console.log(site_id)
 console.log(site_data);
 
 //set the dimensions
-var m = [20, 120, 20, 120],
-    // w = d3.select('.col-xs-12').node();
-    //     element.getBoundingClientRect().width;
-    w = 1280 - m[1] - m[3],
+var m = [20, 20, 20, 120],
+    e = d3.select('.tab-content').node(),
+    s = e.getBoundingClientRect().width,
+    w = s - m[1] - m[3],
     h = 2000 - m[0] - m[2],
     i = 0,
     root;
+    console.log(e);
+    console.log(s);
+    console.log(m[1]);
+    console.log(m[3]);
+    console.log(w);
 
 var tree = d3.layout.tree()
     .size([h, w]);
-
+    console.log(tree.size);
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
 
