@@ -29,18 +29,6 @@
             <p><strong>All Layouts:</strong>  <%= link_to @site.name, templatelist_path(:id => @site.id) %>
             <p><strong>Site Map:</strong> <%= link_to @site.name, sitemapdetail_path(:id => @site.id) %>
 
-
-
-
-            <% @thispage.templates.each do |b| %>
-      
-                    <!-- display Messaging Hierarchy assigned to the template for this page -->
-                    <% b.hierarchies.each do |h| %>
-                      <h5>Messaging</h5>
-                      <strong class="text-muted"><%= h.name %></strong>
-                      <p><small class="text-muted"><%= h.description %></small></p>
-                    <% end %>
-                <% end %>
       
             <% @thispage.templates.each do |a| %>
             <p><strong>Layout Components:</strong><br>
@@ -68,8 +56,20 @@
             <h1><%= @thispage.name %></h1>
       
                   <hr>
+            <!-- MESSAGING HIERARCHY -->
+             <% @thispage.templates.each do |b| %>
       
-            <h5>Tags</h5>
+                    <!-- display Messaging Hierarchy assigned to the template for this page -->
+                    <% b.hierarchies.each do |h| %>
+                      <h5>Messaging</h5>
+                      <strong class="text-muted"><%= h.name %></strong>
+                      <p><small class="text-muted"><%= h.description %></small></p>
+                    <% end %>
+            <% end %>
+      
+            <!-- TAGS -->
+
+            <!-- <h5>Tags</h5>
             <% @pagetags = TagMapping.where page_id: (params[:id]) %>
               <% if @pagetags.empty? %>
                 <p class="text-muted">No tags assigned.</p>
@@ -77,7 +77,10 @@
             <% @pagetags.each do |t| %>
                   <a href="#" class="badge badge-info"><%= t.tag.name %></a>
             <% end %>
-              <hr>
+              <hr> -->
+
+              <!-- SEO TERMS -->
+
             <!-- <h5>SEO Terms</h5>
             <%# @pageterms = SeoMapping.where page_id: (params[:id]) %>
               <%# if @pageterms.empty? %>
@@ -103,10 +106,15 @@
                   <%# end %>
       
               <hr>-->
+
+              <!-- PAGE IMAGE OR COMP -->
+
               <% if @thispage.image_file_name.blank? == false %>
               <%= link_to "Wireframe", @thispage.image_file_name, :class => "btn btn-info", target: "_blank" %><br><br>
               <% else %>
               <% end %>
+
+              <!-- PAGE CONTENT -->
       
             <h5>Page Content</h5>
       
