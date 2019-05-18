@@ -29,7 +29,7 @@
                         <% end %>
                 </div>
                 <div class="col-sm-4">
-                    <h5><% if component.release_priority_id.blank? == false %><span class="badge badge-pill badge-info">Release <%= component.release_priority.name %></span><br><% else %><% end %>
+                    <h5><% if component.release_priority_id.blank? == false %><% if component.release_priority.name == "B" %><% else %><span class="badge badge-pill badge-info">Release <%= component.release_priority.name %></span><br><% end %><% else %><% end %>
                         <%= component.name %><br><span class="badge badge-pill badge-secondary">
                         <%= component.component_group.name %></span>
                     </h5>
