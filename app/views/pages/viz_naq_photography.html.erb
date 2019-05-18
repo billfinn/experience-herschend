@@ -1,0 +1,130 @@
+
+
+    <!-- left column -->
+		<nav class="col-md-3 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+
+      <%= render "VisualGuide" %>
+
+
+      </div>
+    </nav>
+    
+<!-- right column -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-9">
+
+<div style="margin: 2.5em 0 5em 0;">
+<small style="text-transform: uppercase;">Newport Aquarium Brand Elements</small>  
+<h1 class="display-4" style="margin: 0 0 1em 0;">Photography</h1>
+  <p>The following section covers the best usage of the photo and video assets for the web properties. We will cover image treatments, sizes and cropping, and the best size to export said assets.</p>
+
+</div>
+
+<hr class="mt-5">
+<h5 class="font-weight-bold">Image Treatments</h5>
+<div class="row mt-5">
+
+        <div class="col-sm-6">
+        <%= image_tag("/design-system/photography/naq-hero-gradient.jpg", alt: "Hero + Grid") %>
+        </div>
+
+        <div class="col-sm-6">
+            <h5 class="font-weight-bold">Hero + Gradient</h5>
+            <p>Depending on the hero image chosen, we have included the ability to turn on a corresponding overlay. Said overlay can be set to either center or left aligned, depending on the content and copy set on top of the image.</p>
+    
+        </div>
+</div>
+
+<div class="row mt-5 mb-5">
+
+        <div class="col-sm-6">
+        <%= image_tag("/design-system/photography/naq-background-image-gradient.jpg", alt: "Background Image + Gradient") %>
+        </div>
+
+        <div class="col-sm-6">
+            <h5 class="font-weight-bold">Background Image + Gradient</h5>
+            <p>If a background image has been included within the page design, we recommend the content authors include this gradient to gracefully transition to the background color treatment. The gradient transition element can be set to the same hex value as the overall page background.</p>
+    
+        </div>
+</div>
+
+<hr class="mt-5">
+<h5 class="font-weight-bold mb-5">Image Sizes & Cropping</h5>
+<p class="mb-5">Where possible, we have reduced the amount of image sizes used to 4 distinct size ratios. The goal is to reduce the redundancy of similar sized images, while allowing for variations in page layouts. The four image ratios are as follows: hero fixed height, fixed aspect ratio, 50/50 image, and background auto-crop image.</p>
+
+
+
+<h6 class="font-weight-bold" style="margin: 0 0 2em 0;">Weights</h6>
+<div class="row">
+
+        <div class="col-sm-6">
+            <p class="mb-5"><%= image_tag("/design-system/photography/naq-desktop-hero-large.png", alt: "Desktop Hero Large") %></p>
+            <p><%= image_tag("/design-system/photography/naq-mobile-hero.png", alt: "Mobile Hero", class: "mt-5") %></p>
+        </div>
+
+        <div class="col-sm-6">
+
+        <h5 class="font-weight-bold mb-5">Hero Fixed Height</h5>
+
+        <p>These image sizes are determined by the height of the uploaded image. The system will maintain the hero height up until a certain breakpoint, at which time the image then switches to the mobile height and image.</p>
+        
+        <h5 class="font-weight-bold my-5">Recommended Sizes - Hero</h5>
+        
+        <p>We recommend using only two image ratios for desktop, large or small, to best accommodate all screen types. The hero image also goes full-bleed no matter the viewport size, so exporting assets to the largest image size possible is recommended.</p>
+        
+        <h5 class="font-weight-bold my-5">Desktop Hero Large</h5> 
+        <p>at least: 1920x730px</p>
+        <p>equivalent to 1440x548, 1366x520</p>
+        
+        <h5 class="font-weight-bold my-5">Desktop Hero Small</h5>
+        <p>at least: 1920x587px</p>
+        <p>equivalent to 1440x440, 1366x317</p>
+        
+        <h5 class="font-weight-bold my-5">Mobile Hero</h5>
+        <p>recommended: 750x700px</p>
+        <p>equivalent to 375x350, 320x300</p>
+
+        </div>
+</div>
+
+<div class="row">
+
+        <div class="col-sm-6">
+        </div>
+
+        <div class="col-sm-6">
+
+            <h5 class="font-weight-bold my-5">Fixed Aspect Ratio</h5>
+
+            <p>These images have a fixed height, and the component maintain the same aspect ratio throughout various viewport sizes. As long as  the image is within the 16x9 format, the system will not auto-crop the image. If the image  is larger in height or width, cropping will  occur at different breakpoints.</p>
+
+
+            <h5 class="font-weight-bold my-5">Recommended Sizes</h5>
+
+            <p>Only one image size ratio is needed, as it will scale from desktop to mobile. With that being said, it is still best practice to export at the largest image size possible in order to maintain image quality on larger screens.</p>
+
+            <h5 class="font-weight-bold my-5">Desktop Hero Large </h5>
+            <p>at least: 1920x730px</p>
+            <p>equivalent to 1440x548, 1366x520</p>
+
+            <h5 class="font-weight-bold my-5">Desktop Hero Small</h5>
+            <p>at least: 1920x587px</p>
+            <p>equivalent to 1440x440, 1366x317</p>
+
+            <h5 class="font-weight-bold my-5">Mobile Hero</h5>
+            <p>recommended: 750x700px</p>
+            <p>equivalent to 375x350, 320x300</p>
+
+        </div>
+</div>
+
+              
+              
+     
+</main>  
+                    
+</div>
+</div>
+
+
+

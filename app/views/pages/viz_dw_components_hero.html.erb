@@ -1,0 +1,113 @@
+
+
+    <!-- left column -->
+		<nav class="col-md-3 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+
+      <%= render "VisualGuide" %>
+
+
+      </div>
+    </nav>
+    
+<!-- right column -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-9">
+
+<div style="margin: 2.5em 0 5em 0;">
+<small style="text-transform: uppercase;">Dollywood Brand Elements</small>  
+<h1 class="display-4" style="margin: 0 0 1em 0;">Components: Hero</h1>
+
+</div>
+
+
+<hr class="my-5">
+
+<div class="row">
+
+        <div class="col-sm-6">
+            <p class="mb-5"><%= image_tag("/design-system/photography/dw-desktop-hero-large.png", alt: "Desktop Hero Large") %></p>
+            <p><%= image_tag("/design-system/photography/dw-mobile-hero.png", alt: "Mobile Hero", class: "mt-5") %></p>
+        </div>
+
+        <div class="col-sm-6">
+
+            <h5 class="font-weight-bold mb-5">Hero - Dimensions and Rules</h5>
+
+            <p>The hero dimensions are set to hero fixed height, as outlined in the photography section of this guide. We recommend using only two image ratios for desktop, large or small, to best accommodate all screen types. The hero image also goes full-bleed no matter the viewport size, so exporting assets to the largest image size possible is recommended.</p>
+
+            <h5 class="font-weight-bold mt-5 mb-2">Desktop Hero Large </h5>
+            <p>at least: 1920x730px</br>
+            equivalent to 1440x548, 1366x520</p>
+
+            <h5 class="font-weight-bold mt-5 mb-2">Desktop Hero Small</h5>
+            <p>at least: 1920x587px</br>
+            equivalent to 1440x440, 1366x317</p>
+
+            <h5 class="font-weight-bold mt-5 mb-2">Mobile Hero</h5>
+            <p>recommended: 750x700px</br>
+            equivalent to 375x350, 320x300</p>
+
+        </div>
+</div>
+
+<div class="row mt-5">
+
+        <div class="col-sm-6">
+            <p><%= image_tag("/design-system/photography/dw-hero-image-text.jpg", alt: "Hero - Image with Text Overlay") %></p>
+        </div>
+
+        <div class="col-sm-6">
+
+        <h5 class="font-weight-bold mb-5">Hero - Image with Text Overlay</h5>
+
+        <p>Depending on the hero image chosen, we have included the ability to turn on a corresponding text overlay. This includes the ability to turn  on or off the following:
+                <ul>
+                <li>Logo Image</li>
+                <li>Headline</li>
+                <li>Subheadline</li>
+                <li>CTA</li>
+                </ul>
+                </p>
+        </div>
+</div>
+
+<div class="row mt-5">
+
+        <div class="col-sm-6">
+            <p><%= image_tag("/design-system/photography/dw-hero-image-only.jpg", alt: "Hero - Image Only") %></p>
+        </div>
+
+        <div class="col-sm-6">
+
+        <h5 class="font-weight-bold mb-5">Hero - Image Only</h5>
+
+        <p>The image can also be input with no text overlay, allowing for the design team to include any pre-designed graphics as desired. With this, we recommend the content authors take care to upload a desktop and mobile version for best scaling between devices.</p>
+        </div>
+</div>
+
+<div class="row mt-5 mb-5">
+
+        <div class="col-sm-6">
+            <p><%= image_tag("/design-system/photography/dw-hero-video-notext.jpg", alt: "Hero - Video with/without Text Overlay") %></p>
+        </div>
+
+        <div class="col-sm-6">
+
+        <h5 class="font-weight-bold mb-5">Hero - Video with/without Text Overlay</h5>
+
+        <p>In instances where we have video heroes, the same rules apply to turning on or off the text overlay. The video will play a short clip behind 
+        the text content, with the ability to expand to 
+        see the full video player.</p>
+        </div>
+</div>
+
+            
+              
+     
+</main>  
+                    
+</div>
+</div>
+
+
+
