@@ -11,6 +11,11 @@ module Contentmodel
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w( ckeditor/* )
+    # config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
     config.tinymce.install = :copy
 
     config.action_dispatch.default_headers = {
