@@ -2,6 +2,8 @@
 //= require active_admin/base
 # //= require tinymce
 
+CKEDITOR_BASEPATH = '/assets/ckeditor/';
+
 # $(document).ready(function() {
 #   tinyMCE.init({
 #      mode: 'textareas',
