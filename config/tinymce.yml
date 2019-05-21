@@ -1,14 +1,16 @@
 toolbar:
-  - styleselect | bold italic | undo redo
+  - styleselect | bold italic | undo redo | numlist bullist
   - image | link
 plugins:
   - image
   - link
+  - lists
 
 default:
   plugins:
     - image
     - link
+    - lists
 
 alternate:
   <<: *default
