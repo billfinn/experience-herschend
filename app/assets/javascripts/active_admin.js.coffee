@@ -1,6 +1,6 @@
 #= require active_admin/base
 //= require active_admin/base
-//= require tinymce
+# //= require tinymce
 //= require activeadmin/quill_editor/quill
 //= require activeadmin/quill_editor_input
 
@@ -10,14 +10,14 @@
 #      theme: 'advanced'
 #    });
 # });
-$(document).ready ->
-  tinyMCE.init
-    # mode: 'textareas'
-    selector: "textarea.tinymce"
-    theme: 'modern'
-    menubar: false
-    plugins: 'lists table link paste contextmenu textpattern autolink codesample',
-    insert_toolbar: 'quickimage quicktable media codesample',
-    selection_toolbar: 'bold italic | quicklink h2 h3 blockquote',
-  return
+# $(document).ready ->
+#   tinyMCE.init
+#     # mode: 'textareas'
+#     selector: "textarea.tinymce"
+#     theme: 'modern'
+#     menubar: false
+#     plugins: 'lists table link paste contextmenu textpattern autolink codesample',
+#     insert_toolbar: 'quickimage quicktable media codesample',
+#     selection_toolbar: 'bold italic | quicklink h2 h3 blockquote',
+#   return
 
