@@ -63,15 +63,15 @@ form do |f|
     f.input :invision_link, :label => 'Invision Link'
     f.input :image_sizes
     f.input :full_width, :label => 'Full-Width?', as: :boolean
-    f.input :personalization_rules, :label => 'Personalization Rules'
+    # f.input :personalization_rules, :label => 'Personalization Rules'
     f.input :goal
     f.input :cta
     f.input :requirements, :label => 'Requirements', :input_html => { :class => 'tinymce' }
-    f.input :data, :label => 'Data'
+    # f.input :data, :label => 'Data'
     # , :input_html => { :class => 'tinymce' }
-    f.input :allowed_controls, :label => 'Allowed Controls'
-    f.input :dev_notes, :label => 'Dev Notes'
-    f.input :interaction_notes, :label => 'Interaction Notes'
+    # f.input :allowed_controls, :label => 'Allowed Controls'
+    # f.input :dev_notes, :label => 'Dev Notes'
+    # f.input :interaction_notes, :label => 'Interaction Notes'
     # , :input_html => { :class => 'tinymce' }
 
     # f.inputs "Tags" do
