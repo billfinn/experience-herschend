@@ -12,7 +12,6 @@ ActiveAdmin.setup do |config|
     end
   end
 
-  config.register_javascript 'ckeditor/init.js'
   config.register_javascript 'tinymce.js'
   # == Site Title
   #
