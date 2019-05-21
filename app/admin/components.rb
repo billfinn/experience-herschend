@@ -66,7 +66,7 @@ form do |f|
     f.input :personalization_rules, :label => 'Personalization Rules'
     f.input :goal
     f.input :cta
-    f.input :requirements, :label => 'Requirements', as: :quill_editor
+    f.input :requirements, :label => 'Requirements', as: :ckeditor
     f.input :data, :label => 'Data'
     # , :input_html => { :class => 'tinymce' }
     f.input :allowed_controls, :label => 'Allowed Controls'

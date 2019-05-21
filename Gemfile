@@ -9,7 +9,7 @@ gem 'activeadmin'
 gem 'pg'
 # Plus integrations with:
 gem 'devise'
-gem 'cancancan' # or cancancan
+gem 'cancancan' # or cancancand
 gem 'draper'
 gem 'pundit'
 
@@ -28,6 +28,7 @@ gem 'pg_search'
 gem 'active_admin_role'
 gem 'record_tag_helper', '~> 1.0'
 gem 'tinymce-rails'
+gem 'ckeditor', '4.2.4'
 gem 'activeadmin_quill_editor'
 gem 'chosen-rails'
 gem 'haml'

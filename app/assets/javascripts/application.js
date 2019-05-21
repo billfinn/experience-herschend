@@ -27,7 +27,7 @@
 
 //= require tinymce
 //= require chosen-jquery
-
+//= require ckeditor/init
 
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
