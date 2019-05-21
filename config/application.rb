@@ -12,7 +12,7 @@ module Contentmodel
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-
+    # config.tinymce.install = :compile
     config.tinymce.install = :copy
 
     config.action_dispatch.default_headers = {

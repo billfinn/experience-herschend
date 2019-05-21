@@ -4,3 +4,15 @@ toolbar:
 plugins:
   - image
   - link
+
+default:
+  plugins:
+    - image
+    - link
+
+alternate:
+  <<: *default
+  selector: textarea.table-editor
+  toolbar: styleselect | bold italic | undo redo | table
+  plugins:
+    - table

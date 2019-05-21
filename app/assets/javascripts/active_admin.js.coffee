@@ -13,10 +13,10 @@ $(document).ready ->
   tinyMCE.init
     # mode: 'textareas'
     selector: "textarea.tinymce"
-    theme: 'modern'
-    menubar: false
-    plugins: 'lists table link paste contextmenu textpattern autolink codesample',
-    insert_toolbar: 'quickimage quicktable media codesample',
-    selection_toolbar: 'bold italic | quicklink h2 h3 blockquote',
+    theme: 'silver',
+    inline: false,
+    toolbar: true,
+    menubar: false,
+    plugins: [ 'quickbars' ]
   return
 
