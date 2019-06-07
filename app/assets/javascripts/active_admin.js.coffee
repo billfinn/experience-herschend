@@ -12,11 +12,12 @@
 $(document).ready ->
   tinyMCE.init
     # mode: 'textareas'
-    selector: "textarea.tinymce"
+    selector: "textarea.tinymce",
+    # plugins: ["lists"],
     theme: 'silver',
     inline: false,
-    toolbar: true,
-    menubar: false,
-    plugins: [ 'quickbars' ]
+    toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+    menubar: false
+
   return
 
