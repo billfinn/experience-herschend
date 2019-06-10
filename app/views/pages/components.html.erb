@@ -20,6 +20,9 @@
                 <% @components = Component.all.order('name ASC') %>
                 <% @components.each do |component| %>
                 <% @templates = TemplateComponent.order(:position).includes(:component, :template).references(:component, :template).where ({component_id: component.id})  %>
+                <!-- hide component row if in B release group -->
+                <% if component.release_priority.name == "B" %>
+                <% else %>
                 <div class="row">
                 <div class="col-sm-3">
                     <p>Applies to Templates:<br>
@@ -29,7 +32,7 @@
                         <% end %>
                 </div>
                 <div class="col-sm-4">
-                    <h5><% if component.release_priority_id.blank? == false %><%# if component.release_priority.name == "B" %><%# else %><span class="badge badge-pill badge-info">Release <%= component.release_priority.name %></span><br><%# end %><% else %><% end %>
+                    <h5><% if component.release_priority_id.blank? == false %><span class="badge badge-pill badge-info">Release <%= component.release_priority.name %></span><br><% else %><% end %>
                         <%= component.name %><br><span class="badge badge-pill badge-secondary">
                         <%= component.component_group.name %></span>
                     </h5>
@@ -163,6 +166,8 @@
                 </div>
                 </div>
                 <hr>
+                    <% end %>
+<!-- end hiding if in B release -->
                     <% end %>
               
           
