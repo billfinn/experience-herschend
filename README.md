@@ -1,5 +1,9 @@
 # README
 
+Technical documentation will be put here, but if you're getting started, please refer to the wiki:
+
+https://github.com/billfinn/experience-herschend/wiki
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
